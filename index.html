@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Crystal Collector Game</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/style.css">
+
+</head>
+<body>
+	<div class="container">
+		<br>
+		<div class="row">
+			<div class="col-md-6 box-header">
+				<div>Crystal Collector!</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6 box-info">
+				<p>- You will be given a random number at the start of the game.</p>
+				<p>- There are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+				<p>- You win the game by matching your total score to the random number. You lose the game if your total score goes above the random number.</p>
+				<p>- The value of each crystal is hidden from you until you click on it.</p>
+				<p>- Each time the game starts the values of the crystals will be changed.</p>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-2 box-stats">
+				<div>Target Number</div>
+				<div id="targetNumberDisplay">0</div>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-md-2 box-stats">
+				<div id="winsDisplay">Wins: 0</div>
+				<div id="lossesDisplay">Losses: 0</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-1 box-crystals">
+				<div>
+					<img id="crystal1" class="crystal-image"  src="assets/images/ruby1.jpg" alt="crystal1">
+				</div>
+			</div>
+			<div class="col-md-1 box-crystals">
+				<div id="crystal2">
+					<img class="crystal-image"  src="assets/images/ruby2.jpg" alt="crystal2">
+				</div>
+			</div>
+			<div class="col-md-1 box-crystals">
+				<div id="crystal3">
+					<img class="crystal-image"  src="assets/images/ruby3.jpg" alt="crystal3">
+				</div>
+			</div>
+			<div class="col-md-1 box-crystals">
+				<div id="crystal4">
+					<img class="crystal-image"  src="assets/images/ruby4.jpg" alt="crystal4">
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6 box-score1">
+				<p>Your total score is:</p>
+			</div>
+		</div>
+		<br>
+		<div class="row">
+			<div class="col-md-6 box-score2">
+				<div id="scoreDisplay">0</div>
+			</div>
+		</div>
+		<br>
+	</div>
+	<div class="box-popup-win">
+		<h1>You Win!</h1>
+		<button class="btn btn-default">New Game</button>
+	</div>
+	<div class="box-popup-lose">
+		<h1>You Lose!</h1>
+		<button class="btn btn-default">New Game</button>
+	</div>
+
+
+	<script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+
+body {
+	background-image: url(../images/shapes.jpg);
+}
+.container {
+	z-index: 1;
+	position: static;
+	opacity: 1;
+}
+
+/*----- HEADER -----*/
+
+.box-header {
+	background-color: orange;
+	border: black 1px solid;
+	color: white;
+	font-size: 40px;
+	text-align: center;
+}
+
+/*----- INFO -----*/
+
+.box-info {
+	background-color: tan;
+	border: black 1px solid;
+	color: green;
+}
+
+/*----- STATS -----*/
+
+.box-stats {
+	background-color: green;
+	text-align: center;
+	border: black 1px solid;
+	height: 100px;
+	color: white;
+	line-height: 45px;
+	font-size: 20px;	
+}
+
+/*----- CRYSTALS -----*/
+
+.box-crystals {
+	height: 100px;
+}
+.crystal-image {
+	width: 100px;
+	height: 100px;
+	border: black 1px solid;
+	margin-left: -15px;
+}
+#crystal2 {
+	margin-left: 15px;
+}
+#crystal3 {
+	margin-left: 30px;
+}
+#crystal4 {
+	margin-left: 45px;
+}
+
+
+/*----- SCORE -----*/
+
+.box-score1 {
+	background-color: teal;
+	text-align: center;
+	font-size: 20px;
+	height: 40px;
+	line-height: 40px;
+	border: black 1px solid;
+	color: white;
+}
+.box-score2 {
+	background-color: teal;
+	height: 100px;
+	line-height: 100px;
+	color: white;
+	text-align: center;
+	border: black 1px solid;
+	font-size: 40px;
+}
+
+/*----- POPUPS -----*/
+
+.box-popup-win {
+	position: fixed;
+	background-color: green;
+	color: white;
+	height: 200px;
+	width: 300px;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -150px;
+	z-index: 2;
+	border: black 4px solid;
+	border-radius: 20px;
+	text-align: center;
+	line-height: 200px;
+	text-decoration: underline;
+	opacity: 0;
+}
+.box-popup-lose {
+	position: fixed;
+	background-color: red;
+	color: white;
+	height: 200px;
+	width: 300px;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -150px;
+	z-index: 2;
+	border: black 4px solid;
+	border-radius: 20px;
+	text-align: center;
+	line-height: 200px;
+	text-decoration: underline;
+	opacity: 0;
+}
+.btn {
+	margin-top: -90px;
+}
