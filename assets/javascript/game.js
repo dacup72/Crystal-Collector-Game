@@ -76,13 +76,13 @@ var gameRunning = true;
 var game = {
 	start: function() {
 		currentScore = 0;
-		targetNumber = Math.floor(Math.random() * (35-15+1)) + 15;
+		targetNumber = Math.floor(Math.random() * (120-19+1)) + 19;
 		gameRunning = true;
 		randomNumberArray = [];
-		var randomNumber1 = Math.floor(Math.random() * (4-2+1)) + 2;
-		var randomNumber2 = Math.floor(Math.random() * (7-5+1)) + 5;
-		var randomNumber3 = Math.floor(Math.random() * (12-8+1)) + 8;
-		var randomNumber4 = Math.floor(Math.random() * (20-13+1)) + 13;
+		var randomNumber1 = Math.floor(Math.random() * (5-2+1)) + 2;
+		var randomNumber2 = Math.floor(Math.random() * (9-6+1)) + 6;
+		var randomNumber3 = Math.floor(Math.random() * (13-10+1)) + 10;
+		var randomNumber4 = Math.floor(Math.random() * (19-14+1)) + 14;
 		randomNumberArray.push(randomNumber1);
 		randomNumberArray.push(randomNumber2);
 		randomNumberArray.push(randomNumber3);
