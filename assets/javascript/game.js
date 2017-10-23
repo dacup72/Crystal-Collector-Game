@@ -177,4 +177,35 @@ var game = {
 };
 
 
+// =======================
+// REFACTORED CODE
+// =======================
 
+$(document).ready(() => {
+	// Global Variables
+	let wins = 0;
+	let losses = 0;
+	let targetScore = 0;
+	let userScore = 0;
+
+	let crystalData = [
+		{
+			image: ruby1.jpg,
+		}
+	]
+
+
+	let crystalDiv = `
+		<div class="col-md-1 box-crystals">
+			<img id="crystal${i + 1}" class="crystal-image"  data-value="" src="assets/images/${image}" alt="crystal${i + 1}">
+		</div>
+	`;
+
+
+	$(document).on('click', '.crystal-image', () => {
+		let userGuess = $(this).attr('data-value');
+		userScore = userScore + userGuess;
+
+		
+	});
+});
