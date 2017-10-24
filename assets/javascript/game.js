@@ -191,16 +191,32 @@ $(document).ready(() => {
 	let crystalData = [
 		{
 			image: ruby1.jpg,
+		},
+		{
+			image: ruby1.jpg,
+		},
+		{
+			image: ruby1.jpg,
+		},
+		{
+			image: ruby1.jpg,
 		}
 	]
 
+	for (let i = 0; i < crystalData.length; i++) {
+		const element = array[i];
 
-	let crystalDiv = `
-		<div class="col-md-1 box-crystals">
-			<img id="crystal${i + 1}" class="crystal-image"  data-value="" src="assets/images/${image}" alt="crystal${i + 1}">
-		</div>
-	`;
-
+		let generateRandomNumber = () => {
+			return randomNum = Math.floor(Math.random() * 18 ) + 1;
+		}
+	
+		let crystalDiv = `
+			<div class="col-md-1 box-crystals">
+				<img id="crystal${i + 1}" class="crystal-image"  data-value="${generateRandomNumber()}" src="assets/images/${element.image}" alt="crystal${i + 1}">
+			</div>
+		`;
+	}
+	
 
 	$(document).on('click', '.crystal-image', () => {
 		let userGuess = $(this).attr('data-value');
