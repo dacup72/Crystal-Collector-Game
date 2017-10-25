@@ -190,6 +190,9 @@ $(document).ready(() => {
 
 
 	let game = () => {
+		targetScore = Math.floor(Math.random() * 99) + 1;
+		userScore = 0;
+		print();
 		generateCrystals();
 	}
 
@@ -199,10 +202,11 @@ $(document).ready(() => {
 			let generateRandomNumber = () => {
 				return randomNum = Math.floor(Math.random() * 18) + 1;
 			}
+			console.log(generateRandomNumber());
 
 			let crystalDiv = `
 				<div class="col-md-1 box-crystals">
-					<img id="crystal${i + 1}" class="crystal-image"  data-value="${generateRandomNumber()}" src="assets/images/${i + 1}" alt="crystal${i + 1}">
+					<img id="crystal${i + 1}" class="crystal-image"  value="${generateRandomNumber()}" src="assets/images/ruby${i + 1}.jpg" alt="crystal${i + 1}">
 				</div>
 			`;
 
@@ -230,14 +234,15 @@ $(document).ready(() => {
 		$(".btn").click(function () {
 			$(".box-popup-lose").css("opacity", 0);
 			$(".container").css("opacity", 1);
-			game.start();
 		});
 	}
 
 
-	$(document).on('click', '.crystal-image', () => {
-		let userGuess = $(this).attr('data-value');
-		userScore = userScore + userGuess;
+	$(document).on('click', '.crystal-image', function() {
+		let userGuess = $(this).attr('value');
+		console.log("userGuess: " + userGuess)
+		console.log($(this));
+		userScore = userScore + parseInt(userGuess);
 		print();
 
 		if (userScore === targetScore) {
@@ -245,12 +250,12 @@ $(document).ready(() => {
 			wins++;
 			game();
 		} 
-		else if() {
+		else if(userScore > targetScore) {
 			popupLose();
 			losses++;
 			game();
 		}
-		
+
 	});
 
 	game();
