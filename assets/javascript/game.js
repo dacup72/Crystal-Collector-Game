@@ -188,24 +188,13 @@ $(document).ready(() => {
 	let targetScore = 0;
 	let userScore = 0;
 
-	let crystalData = [
-		{
-			image: ruby1.jpg,
-		},
-		{
-			image: ruby1.jpg,
-		},
-		{
-			image: ruby1.jpg,
-		},
-		{
-			image: ruby1.jpg,
-		}
-	]
+
+	let game = () => {
+		generateCrystals();
+	}
 
 	let generateCrystals = () => {
-		for (let i = 0; i < crystalData.length; i++) {
-			const element = array[i];
+		for (let i = 0; i < 4; i++) {
 	
 			let generateRandomNumber = () => {
 				return randomNum = Math.floor(Math.random() * 18 ) + 1;
@@ -213,12 +202,17 @@ $(document).ready(() => {
 		
 			let crystalDiv = `
 				<div class="col-md-1 box-crystals">
-					<img id="crystal${i + 1}" class="crystal-image"  data-value="${generateRandomNumber()}" src="assets/images/${element.image}" alt="crystal${i + 1}">
+					<img id="crystal${i + 1}" class="crystal-image"  data-value="${generateRandomNumber()}" src="assets/images/${i + 1}" alt="crystal${i + 1}">
 				</div>
 			`;
 	
 			$("#crystalsContainer").append(crystalDiv);
 		}
+	}
+
+
+	let print = () => {
+		
 	}
 	
 	
@@ -229,4 +223,6 @@ $(document).ready(() => {
 
 
 	});
+
+	game();
 });
