@@ -192,6 +192,7 @@ $(document).ready(() => {
 	let game = () => {
 		targetScore = Math.floor(Math.random() * 99) + 1;
 		userScore = 0;
+		$("#crystalsContainer").html("");
 		print();
 		generateCrystals();
 	}
@@ -227,6 +228,7 @@ $(document).ready(() => {
 		$(".btn").click(function () {
 			$(".box-popup-win").css("opacity", 0);
 			$(".container").css("opacity", 1);
+			game();
 		});
 	}
 
@@ -234,6 +236,7 @@ $(document).ready(() => {
 		$(".btn").click(function () {
 			$(".box-popup-lose").css("opacity", 0);
 			$(".container").css("opacity", 1);
+			game();
 		});
 	}
 
@@ -246,14 +249,18 @@ $(document).ready(() => {
 		print();
 
 		if (userScore === targetScore) {
+			$(".box-popup-win").css("opacity", 1);
+			$(".container").css("opacity", 0.5);
 			popupWin();
 			wins++;
-			game();
+			
 		} 
 		else if(userScore > targetScore) {
+			$(".box-popup-lose").css("opacity", 1);
+			$(".container").css("opacity", 0.5);
 			popupLose();
 			losses++;
-			game();
+			
 		}
 
 	});
