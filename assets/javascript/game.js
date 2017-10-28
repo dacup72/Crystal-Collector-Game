@@ -187,14 +187,16 @@ $(document).ready(() => {
 	let losses = 0;
 	let targetScore = 0;
 	let userScore = 0;
+	let gameRunning = false;
 
 
 	let game = () => {
-		targetScore = Math.floor(Math.random() * 99) + 1;
+		targetScore = Math.floor(Math.random() * 99) + 20;
 		userScore = 0;
 		$("#crystalsContainer").html("");
 		print();
 		generateCrystals();
+		gameRunning = true;
 	}
 
 	let generateCrystals = () => {
@@ -241,26 +243,29 @@ $(document).ready(() => {
 	}
 
 
-	$(document).on('click', '.crystal-image', function() {
-		let userGuess = $(this).attr('value');
-		console.log("userGuess: " + userGuess)
-		console.log($(this));
-		userScore = userScore + parseInt(userGuess);
-		print();
+	$(document).on('click', '.crystal-image', function () {
+		if (gameRunning) {
+			let userGuess = $(this).attr('value');
+			console.log("userGuess: " + userGuess)
+			console.log($(this));
+			userScore = userScore + parseInt(userGuess);
+			print();
 
-		if (userScore === targetScore) {
-			$(".box-popup-win").css("opacity", 1);
-			$(".container").css("opacity", 0.5);
-			popupWin();
-			wins++;
-			
-		} 
-		else if(userScore > targetScore) {
-			$(".box-popup-lose").css("opacity", 1);
-			$(".container").css("opacity", 0.5);
-			popupLose();
-			losses++;
-			
+
+			if (userScore === targetScore) {
+				gameRunning = false;
+				$(".box-popup-win").css("opacity", 1);
+				$(".container").css("opacity", 0.5);
+				popupWin();
+				wins++;
+			}
+			else if (userScore > targetScore) {
+				gameRunning = false;
+				$(".box-popup-lose").css("opacity", 1);
+				$(".container").css("opacity", 0.5);
+				popupLose();
+				losses++;
+			}
 		}
 
 	});
