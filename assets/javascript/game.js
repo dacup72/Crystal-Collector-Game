@@ -13,7 +13,6 @@ $(document).ready(() => {
 	let userScore = 0;
 	let gameRunning = false;
 
-
 	let game = () => {
 		targetScore = Math.floor(Math.random() * 99) + 20;
 		userScore = 0;
