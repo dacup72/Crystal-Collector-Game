@@ -5,115 +5,154 @@
 // REFACTORED CODE
 // =======================
 
-$(document).ready(() => {
-	// Global Variables
-	let wins = 0;
-	let losses = 0;
-	let targetScore = 0;
-	let userScore = 0;
-	let gameRunning = false;
+$(document).ready(function() {
 
-	// Function that generates random values for our crystals and returns our crystals object.
-  function generateRandomCrystalsNumbers() {
-    // Crystals object.
-    return {
-      crystal1: Math.floor(Math.random() * 12) + 1,
+	// Starting global valiables
+	var wins = 0;
+	var losses = 0;
+	var crystals = {};
 
-      crystal2: Math.floor(Math.random() * 12) + 1,
 
-      crystal3: Math.floor(Math.random() * 12) + 1,
-      
-      crystal4: Math.floor(Math.random() * 12) + 1
-    };
+	// Users current total
+	var userTotal = 0;
+
+
+	// Generates the random "target number" we will try to reach.
+	var targetTotal = randomNumGen();
+	// Function to create a random number between 19 and 120.
+  function randomNumGen() {
+    return Math.floor(Math.random() * 102) + 19;
   }
 
+	var crystalValues = generateRandomCrystalsValues();
+	// Function that generates random values for our crystals and returns our crystals object.
+	function generateRandomCrystalsValues() {
+		// Crystals object.
+		return {
+			crystal1: Math.floor(Math.random() * 12) + 1,
+
+			crystal2: Math.floor(Math.random() * 12) + 1,
+
+			crystal3: Math.floor(Math.random() * 12) + 1,
+
+			crystal4: Math.floor(Math.random() * 12) + 1
+		};
+	}
+
 	
-	let game = () => {
-		targetScore = Math.floor(Math.random() * 99) + 20;
-		userScore = 0;
-		$("#crystalsContainer").html("");
-		print();
-		generateCrystals();
-		gameRunning = true;
-	}
+	$(document).on("click", ".crystal_btn", function() {
 
-	let generateCrystals = () => {
-		for (let i = 0; i < 4; i++) {
+    updateUserTotal($(this));
 
-			let generateRandomNumber = () => {
-				return randomNum = Math.floor(Math.random() * 18) + 1;
-			}
-			
-			let crystalsValues = {
-				crystal1: generateRandomNumber(),
-				crystal2: generateRandomNumber(),
-				crystal3: generateRandomNumber(),
-				crystal4: generateRandomNumber()
-			}
-
-		}
-	}
-
-
-	let print = () => {
-		$('#scoreDisplay').html(userScore);
-		$('#winsDisplay').html(wins);
-		$('#lossesDisplay').html(losses);
-		$('#targetNumberDisplay').html(targetScore);
-	}
-
-
-	let popupWin = () => {
-		$(".btn").click(function () {
-			$(".box-popup-win").css("opacity", 0);
-			$(".container").css("opacity", 1);
-			game();
-		});
-	}
-
-	let popupLose = () => {
-		$(".btn").click(function () {
-			$(".box-popup-lose").css("opacity", 0);
-			$(".container").css("opacity", 1);
-			game();
-		});
-	}
-
-
-	$(document).on('click', '.crystal-image', function () {
-		if (gameRunning) {
-			let userGuess = $(this).attr('value');
-			console.log("userGuess: " + userGuess)
-			console.log($(this));
-			userScore = userScore + parseInt(userGuess);
-			print();
-
-
-			if (userScore === targetScore) {
-				gameRunning = false;
-				$(".box-popup-win").css("opacity", 1);
-				$(".container").css("opacity", 0.5);
-				popupWin();
-				wins++;
-			}
-			else if (userScore > targetScore) {
-				gameRunning = false;
-				$(".box-popup-lose").css("opacity", 1);
-				$(".container").css("opacity", 0.5);
-				popupLose();
-				losses++;
-			}
-		}
-
-	});
-
-	game();
+    // Check to see if we have won or lost.
+    // If our current guess number equals the target number..
+    if (yourMatchingNumber === randomNum) {
+      // Increment wins, restart the game, and update the page.
+      wins++;
+      setGame();
+      updateDom(true);
+    }
+    // If our guess number exceeded our target number...
+    else if (yourMatchingNumber > randomNum) {
+      // Increment losses, restart the game, and update the page.
+      losses++;
+      setGame();
+      updateDom(false);
+    }
+  });
+	
 });
 
 
 
 
 
+
+
+
+
+
+
+// let game = () => {
+// 	targetScore = Math.floor(Math.random() * 99) + 20;
+// 	userScore = 0;
+// 	$("#crystalsContainer").html("");
+// 	print();
+// 	generateCrystals();
+// 	gameRunning = true;
+// }
+
+// let generateCrystals = () => {
+// 	for (let i = 0; i < 4; i++) {
+
+// 		let generateRandomNumber = () => {
+// 			return randomNum = Math.floor(Math.random() * 18) + 1;
+// 		}
+
+// 		let crystalsValues = {
+// 			crystal1: generateRandomNumber(),
+// 			crystal2: generateRandomNumber(),
+// 			crystal3: generateRandomNumber(),
+// 			crystal4: generateRandomNumber()
+// 		}
+
+// 	}
+// }
+
+
+// let print = () => {
+// 	$('#scoreDisplay').html(userScore);
+// 	$('#winsDisplay').html(wins);
+// 	$('#lossesDisplay').html(losses);
+// 	$('#targetNumberDisplay').html(targetScore);
+// }
+
+
+// let popupWin = () => {
+// 	$(".btn").click(function () {
+// 		$(".box-popup-win").css("opacity", 0);
+// 		$(".container").css("opacity", 1);
+// 		game();
+// 	});
+// }
+
+// let popupLose = () => {
+// 	$(".btn").click(function () {
+// 		$(".box-popup-lose").css("opacity", 0);
+// 		$(".container").css("opacity", 1);
+// 		game();
+// 	});
+// }
+
+
+// $(document).on('click', '.crystal-image', function () {
+// 	if (gameRunning) {
+// 		let userGuess = $(this).attr('value');
+// 		console.log("userGuess: " + userGuess)
+// 		console.log($(this));
+// 		userScore = userScore + parseInt(userGuess);
+// 		print();
+
+
+// 		if (userScore === targetScore) {
+// 			gameRunning = false;
+// 			$(".box-popup-win").css("opacity", 1);
+// 			$(".container").css("opacity", 0.5);
+// 			popupWin();
+// 			wins++;
+// 		}
+// 		else if (userScore > targetScore) {
+// 			gameRunning = false;
+// 			$(".box-popup-lose").css("opacity", 1);
+// 			$(".container").css("opacity", 0.5);
+// 			popupLose();
+// 			losses++;
+// 		}
+// 	}
+
+// });
+
+// game();
 
 
 
