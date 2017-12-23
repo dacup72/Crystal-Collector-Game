@@ -13,6 +13,21 @@ $(document).ready(() => {
 	let userScore = 0;
 	let gameRunning = false;
 
+	// Function that generates random values for our crystals and returns our crystals object.
+  function generateRandomCrystalsNumbers() {
+    // Crystals object.
+    return {
+      crystal1: Math.floor(Math.random() * 12) + 1,
+
+      crystal2: Math.floor(Math.random() * 12) + 1,
+
+      crystal3: Math.floor(Math.random() * 12) + 1,
+      
+      crystal4: Math.floor(Math.random() * 12) + 1
+    };
+  }
+
+	
 	let game = () => {
 		targetScore = Math.floor(Math.random() * 99) + 20;
 		userScore = 0;
@@ -28,15 +43,14 @@ $(document).ready(() => {
 			let generateRandomNumber = () => {
 				return randomNum = Math.floor(Math.random() * 18) + 1;
 			}
-			console.log(generateRandomNumber());
+			
+			let crystalsValues = {
+				crystal1: generateRandomNumber(),
+				crystal2: generateRandomNumber(),
+				crystal3: generateRandomNumber(),
+				crystal4: generateRandomNumber()
+			}
 
-			let crystalDiv = `
-				<div class="col-md-1 box-crystals">
-					<img id="crystal${i + 1}" class="crystal-image"  value="${generateRandomNumber()}" src="assets/images/ruby${i + 1}.jpg" alt="crystal${i + 1}">
-				</div>
-			`;
-
-			$("#crystalsContainer").append(crystalDiv);
 		}
 	}
 
