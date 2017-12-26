@@ -10,10 +10,6 @@ $(document).ready(function () {
 	// Starting global valiables
 	var wins = 0;
 	var losses = 0;
-	var crystals = {};
-
-
-	// Users current total
 	var userTotal = 0;
 
 
@@ -40,26 +36,32 @@ $(document).ready(function () {
 	}
 
 
-	$(document).on("click", ".crystal_btn", function () {
+	$(document).on("click", ".crystal_btn", function() {
 
-		updateUserTotal($(this));
+		// Add value of crystal clicked to users total
+		userTotal = userTotal + crystalValues[$(this).attr("id")]
 
-		// Check to see if we have won or lost.
-		// If our current guess number equals the target number..
-		if (yourMatchingNumber === randomNum) {
-			// Increment wins, restart the game, and update the page.
+		// Check to see if user has won or lost.
+		if (userTotal === targetTotal) {
 			wins++;
 			setGame();
-			updateDom(true);
 		}
-		// If our guess number exceeded our target number...
-		else if (yourMatchingNumber > randomNum) {
-			// Increment losses, restart the game, and update the page.
+		else if (userTotal > targetTotal) {
 			losses++;
 			setGame();
-			updateDom(false);
 		}
 	});
+
+	function setGame() {
+		renderValues();
+	}
+
+let renderValues = () => {
+	$('#score').html(userTotal);
+	$('#wins').html(wins);
+	$('#losses').html(losses);
+	$('#numero').html(targetTotal);
+}
 
 });
 
