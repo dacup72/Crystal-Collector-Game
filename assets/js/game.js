@@ -7,20 +7,14 @@
 
 $(document).ready(function () {
 
-	// Starting global valiables
+	// Setting global valiables
 	var wins = 0;
 	var losses = 0;
 	var userTotal = 0;
-
-
-	// Generates the random "target number" we will try to reach.
 	var targetTotal = randomNumGen();
-	// Function to create a random number between 19 and 120.
-	function randomNumGen() {
-		return Math.floor(Math.random() * 102) + 19;
-	}
-
 	var crystalValues = generateRandomCrystalsValues();
+
+
 	// Function that generates random values for our crystals and returns our crystals object.
 	function generateRandomCrystalsValues() {
 		// Crystals object.
@@ -36,7 +30,12 @@ $(document).ready(function () {
 	}
 
 
-	$(document).on("click", ".crystal_btn", function() {
+	// Function to create a random number between 19 and 120.
+	function randomNumGen() {
+		return Math.floor(Math.random() * 102) + 19;
+	}
+
+	$(document).on("click", ".crystal_btn", function () {
 
 		// Add value of crystal clicked to users total
 		userTotal = userTotal + crystalValues[$(this).attr("id")]
@@ -56,12 +55,14 @@ $(document).ready(function () {
 		renderValues();
 	}
 
-let renderValues = () => {
-	$('#score').html(userTotal);
-	$('#wins').html(wins);
-	$('#losses').html(losses);
-	$('#numero').html(targetTotal);
-}
+	let renderValues = () => {
+		$('#score').html(userTotal);
+		$('#wins').html(wins);
+		$('#losses').html(losses);
+		$('#numero').html(targetTotal);
+	}
+
+	setGame();
 
 });
 
