@@ -11,8 +11,8 @@ $(document).ready(function () {
 	var wins = 0;
 	var losses = 0;
 	var userTotal = 0;
-	var targetTotal = randomNumGen();
-	var crystalValues = generateRandomCrystalsValues();
+	var targetTotal = 0;
+	var crystalValues = {};
 
 
 	// Function that generates random values for our crystals and returns our crystals object.
@@ -35,8 +35,8 @@ $(document).ready(function () {
 		return Math.floor(Math.random() * 102) + 19;
 	}
 
+	// Function to detect clicks on crystals
 	$(document).on("click", ".crystal_btn", function () {
-
 		// Add value of crystal clicked to users total
 		userTotal = userTotal + crystalValues[$(this).attr("id")]
 
@@ -49,12 +49,12 @@ $(document).ready(function () {
 			losses++;
 			setGame();
 		}
+
+		renderValues();
 	});
 
-	function setGame() {
-		renderValues();
-	}
 
+	// print global values to page
 	let renderValues = () => {
 		$('#score').html(userTotal);
 		$('#wins').html(wins);
@@ -62,6 +62,16 @@ $(document).ready(function () {
 		$('#numero').html(targetTotal);
 	}
 
+	// Function to start and reset the game
+	function setGame() {
+		// Set up new globals
+		targetTotal = randomNumGen();
+		crystalValues = generateRandomCrystalsValues();
+
+		renderValues();
+	}
+
+	// Initial set up when page loads
 	setGame();
 
 });
