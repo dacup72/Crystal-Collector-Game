@@ -18,8 +18,8 @@
 
 .section {
   height: 400px;
-  background-image: -webkit-radial-gradient(circle farthest-corner at 50% 0%, #fff, hsla(0, 0%, 100%, .31)), url('../images/back_top.jpg');
-  background-image: radial-gradient(circle farthest-corner at 50% 0%, #fff, hsla(0, 0%, 100%, .31)), url('../images/back_top.jpg');
+  background-image: -webkit-radial-gradient(circle farthest-corner at 50% 0%, #fff, hsla(0, 0%, 100%, .31)), url('../images/shapes.jpg');
+  background-image: radial-gradient(circle farthest-corner at 50% 0%, #fff, hsla(0, 0%, 100%, .31)), url('../images/shapes.jpg');
   background-position: 0px 0px, 50% 50%;
   background-size: auto, cover;
 }
@@ -157,8 +157,8 @@
 
 @media (max-width: 991px) {
   .section {
-    background-image: -webkit-linear-gradient(90deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/back_top.jpg');
-    background-image: linear-gradient(0deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/back_top.jpg');
+    background-image: -webkit-linear-gradient(90deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/shapes.jpg');
+    background-image: linear-gradient(0deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/shapes.jpg');
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
   }
@@ -187,8 +187,8 @@
 @media (max-width: 767px) {
   .section {
     height: auto;
-    background-image: -webkit-linear-gradient(270deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/back_top.jpg');
-    background-image: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/back_top.jpg');
+    background-image: -webkit-linear-gradient(270deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/shapes.jpg');
+    background-image: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/shapes.jpg');
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
   }
@@ -223,8 +223,8 @@
     line-height: 1.2em;
   }
   .section {
-    background-image: -webkit-linear-gradient(270deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/back_top.jpg');
-    background-image: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/back_top.jpg');
+    background-image: -webkit-linear-gradient(270deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/shapes.jpg');
+    background-image: linear-gradient(180deg, #fff, hsla(0, 0%, 100%, .31)), url('../images/shapes.jpg');
     background-position: 0px 0px, 50% 50%;
     background-size: auto, cover;
   }
