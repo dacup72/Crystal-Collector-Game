@@ -44,10 +44,12 @@ $(document).ready(function () {
 		if (userTotal === targetTotal) {
 			wins++;
 			setGame();
+			alert("YOU W0N!");
 		}
 		else if (userTotal > targetTotal) {
 			losses++;
 			setGame();
+			alert("YOU LOST!");
 		}
 
 		renderValues();
@@ -67,6 +69,7 @@ $(document).ready(function () {
 		// Set up new globals
 		targetTotal = randomNumGen();
 		crystalValues = generateRandomCrystalsValues();
+		userTotal = 0;
 
 		renderValues();
 	}
