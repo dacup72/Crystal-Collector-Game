@@ -57,7 +57,7 @@ $(document).ready(function () {
 
 
 	// print global values to page
-	let renderValues = () => {
+	function renderValues() {
 		$('#score').html(userTotal);
 		$('#wins').html(wins);
 		$('#losses').html(losses);
@@ -78,98 +78,6 @@ $(document).ready(function () {
 	setGame();
 
 });
-
-
-
-
-
-
-
-
-
-
-
-// let game = () => {
-// 	targetScore = Math.floor(Math.random() * 99) + 20;
-// 	userScore = 0;
-// 	$("#crystalsContainer").html("");
-// 	print();
-// 	generateCrystals();
-// 	gameRunning = true;
-// }
-
-// let generateCrystals = () => {
-// 	for (let i = 0; i < 4; i++) {
-
-// 		let generateRandomNumber = () => {
-// 			return randomNum = Math.floor(Math.random() * 18) + 1;
-// 		}
-
-// 		let crystalsValues = {
-// 			crystal1: generateRandomNumber(),
-// 			crystal2: generateRandomNumber(),
-// 			crystal3: generateRandomNumber(),
-// 			crystal4: generateRandomNumber()
-// 		}
-
-// 	}
-// }
-
-
-// let print = () => {
-// 	$('#scoreDisplay').html(userScore);
-// 	$('#winsDisplay').html(wins);
-// 	$('#lossesDisplay').html(losses);
-// 	$('#targetNumberDisplay').html(targetScore);
-// }
-
-
-// let popupWin = () => {
-// 	$(".btn").click(function () {
-// 		$(".box-popup-win").css("opacity", 0);
-// 		$(".container").css("opacity", 1);
-// 		game();
-// 	});
-// }
-
-// let popupLose = () => {
-// 	$(".btn").click(function () {
-// 		$(".box-popup-lose").css("opacity", 0);
-// 		$(".container").css("opacity", 1);
-// 		game();
-// 	});
-// }
-
-
-// $(document).on('click', '.crystal-image', function () {
-// 	if (gameRunning) {
-// 		let userGuess = $(this).attr('value');
-// 		console.log("userGuess: " + userGuess)
-// 		console.log($(this));
-// 		userScore = userScore + parseInt(userGuess);
-// 		print();
-
-
-// 		if (userScore === targetScore) {
-// 			gameRunning = false;
-// 			$(".box-popup-win").css("opacity", 1);
-// 			$(".container").css("opacity", 0.5);
-// 			popupWin();
-// 			wins++;
-// 		}
-// 		else if (userScore > targetScore) {
-// 			gameRunning = false;
-// 			$(".box-popup-lose").css("opacity", 1);
-// 			$(".container").css("opacity", 0.5);
-// 			popupLose();
-// 			losses++;
-// 		}
-// 	}
-
-// });
-
-// game();
-
 
 
 
